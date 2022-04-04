@@ -1,0 +1,43 @@
+<div class='container'>
+    <form>
+      <div class="input-group">
+      <div class="form-outline">
+        <input type='text' name='tv-name' id="searchBar" class="form-control" #tvname placeholder='Enter tv name'>
+      </div>
+      <button (click)="getTvDetails(tvname.value)" id="submitBtn" type="submit" class='btn btn-primary'>Search</button>
+    </div>
+    </form>
+
+
+   
+        
+  
+ <div  *ngIf="tvData" id="display">
+      <div  id="searchDisplay">
+       
+        <h1 class="displayDetails">{{tvData.name}}</h1>
+          <h1 class="displayDetails"> Premiered:{{tvData.premiered}}</h1>
+          <img src="{{tvData.image.medium}}" id="img">
+          <h2 class="displayDetails"> {{tvData.summary | specialPipe}}</h2>
+  
+      </div>
+
+    
+    
+      <param type="text"   value={{tvData.name}} #name> 
+      <param type="text" name="premiered"  value={{tvData.premiered}} #premiered> 
+     <param type="text" name="summary"  value={{tvData.summary}} #summary>
+     <param type="text" name="summary"  value={{tvData.image.medium}} #image>
+
+     <div class="col-sm-8">
+      <button type="submit"class='btn btn-primary' id="saveBtn"(click)="addTheTv(name?.value,premiered?.value,summary?.value,
+      image?.value)">save show</button>
+      </div>
+</div>
+</div>    
+   
+<div class='Container'>
+  <app-tv-details></app-tv-details>
+  </div> 
+    
+  
